@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Código</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="verification-container">
+        <!-- Back Arrow -->
+        <div class="back-arrow">
+            <a href="#"><img src="https://img.icons8.com/ios-filled/50/000000/left.png" alt="Back"></a>
+        </div>
+
+        <!-- Verification Text -->
+        <h1>Verifica el código que ha sido enviado</h1>
+        <p class="phone-number">+51 999 - 999 - 999</p>
+
+        <!-- Code Input Boxes -->
+        <div class="code-inputs">
+            <input type="text" maxlength="1" class="code-box" autofocus>
+            <input type="text" maxlength="1" class="code-box">
+            <input type="text" maxlength="1" class="code-box">
+            <input type="text" maxlength="1" class="code-box">
+            <input type="text" maxlength="1" class="code-box">
+            <input type="text" maxlength="1" class="code-box">
+        </div>
+
+        <!-- Resend Code Timer -->
+        <p class="resend-text">Reenviar nuevo código en <span id="timer">59s</span></p>
+
+        <!-- Confirm Button -->
+        <button class="confirm-btn">Confirmar</button>
+    </div>
+
+    <script>
+        // Countdown Timer for Resending Code
+        let timerElement = document.getElementById('timer');
+        let seconds = 59;
+
+        const countdown = setInterval(() => {
+            seconds--;
+            timerElement.textContent = `${seconds}s`;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                timerElement.textContent = 'Ahora';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
